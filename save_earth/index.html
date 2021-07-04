@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>채식과 함께하는 지구 지키기</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <style>
+            body {
+            font-family: sans-serif;
+            background-color: #eeeeee;
+          }
+          
+         
+          
+          .file-upload-btn {
+            width: 100%;
+            margin: 0;
+            color: #fff;
+            background: #1FB264;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid #15824B;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+          
+          .file-upload-btn:hover {
+            background: #1AA059;
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+          }
+          
+          .file-upload-btn:active {
+            border: 0;
+            transition: all .2s ease;
+          }
+          
+          .file-upload-content {
+            display: none;
+            text-align: center;
+          }
+          
+          .file-upload-input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+          }
+          
+          .image-upload-wrap {
+            margin-top: 20px;
+            border: 4px dashed #1FB264;
+            position: relative;
+          }
+          
+          .image-dropping,
+          .image-upload-wrap:hover {
+            background-color: #1FB264;
+            border: 4px dashed #ffffff;
+          }
+          
+          .image-title-wrap {
+            padding: 0 15px 15px 15px;
+            color: #222;
+          }
+          
+          .drag-text {
+            text-align: center;
+          }
+          
+          .drag-text h3 {
+            font-weight: 100;
+            text-transform: uppercase;
+            color: #15824B;
+            padding: 60px 0;
+          }
+          
+          .file-upload-image {
+            max-height: 200px;
+            max-width: 200px;
+            margin: auto;
+            padding: 20px;
+          }
+          
+          .remove-image {
+            width: 200px;
+            margin: 0;
+            color: #fff;
+            background: #cd4535;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid #b02818;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+          
+          .remove-image:hover {
+            background: #c13b2a;
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+          }
+          
+          .remove-image:active {
+            border: 0;
+            transition: all .2s ease;
+          }
+          @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+          .login-page {
+            width: 90%;
+            padding: 8% 0 0;
+            margin: auto;
+          }
+          .form {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 80%;
+            margin: 0 auto 100px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          }
+          .form input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+          }
+          .form button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+          }
+          .form button:hover,.form button:active,.form button:focus {
+            background: #43A047;
+          }
+          .form .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+          }
+          .form .message a {
+            color: #4CAF50;
+            text-decoration: none;
+          }
+          .form .register-form {
+            display: none;
+          }
+          .container {
+            position: relative;
+            z-index: 1;
+            max-width: 300px;
+            margin: 0 auto;
+          }
+          .container:before, .container:after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+          .container .info {
+            margin: 50px auto;
+            text-align: center;
+          }
+          .container .info h1 {
+            margin: 0 0 15px;
+            padding: 0;
+            font-size: 36px;
+            font-weight: 300;
+            color: #1a1a1a;
+          }
+          .container .info span {
+            color: #4d4d4d;
+            font-size: 12px;
+          }
+          .container .info span a {
+            color: #000000;
+            text-decoration: none;
+          }
+          .container .info span .fa {
+            color: #EF3B3A;
+          }
+          body {
+            /*background: #76b852; 
+            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+            background: -moz-linear-gradient(right, #76b852, #8DC26F);
+            background: -o-linear-gradient(right, #76b852, #8DC26F);
+            background: linear-gradient(to left, #76b852, #8DC26F); */
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;      
+          }
+        </style>
+          <script>
+            var fifi;
+          </script>
+    </head>
+    <body style="background-color:#76b852;">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyB6glrbZADL6d20iPPb20Zqau5Sz2WsO_c",
+    authDomain: "project-a8621.firebaseapp.com",
+    projectId: "project-a8621",
+    storageBucket: "project-a8621.appspot.com",
+    messagingSenderId: "925289765649",
+    appId: "1:925289765649:web:b12bd1329e579240fc0ab0",
+    measurementId: "G-MRPH7RFG3J"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var database = firebase.database();
+  var ref = firebase.storage().ref();
+</script>
+
+
+        <center>
+        <img src="poster.png" id="bg" width="80%"><br>
+
+
+
+<!--로그인-->
+<div class="login-page">
+    <div class="form">
+        <h2>채식 인증</h2><br>
+        <!--업로드--><p>
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">사진 첨부</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>드래그 앤 드롭으로 <br>사진을 가져오거나 <br>파일 선택</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">삭제 <span class="image-title">사진 업로드</span></button>
+    </div>
+  </div></p>
+        <input type="text" id='hb1' value="" placeholder="학번"/>
+        <button id="submit">제출</button>
+    </div>
+  </div>
+
+
+  <div class="login-page">
+    <div class="form">
+        <h2>포인트 조회</h2><br>
+        <input type="text" value="" id="inin" placeholder="학번"/>
+        <button id="view">조회</button>
+    </div>
+  </div>
+    </center>
+    
+    <script>function readURL(input) {
+  if (input.files && input.files[0]) {
+    fifi=input.files[0]
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+		$('.image-upload-wrap').addClass('image-dropping');
+	});
+	$('.image-upload-wrap').bind('dragleave', function () {
+		$('.image-upload-wrap').removeClass('image-dropping');
+});
+const dbRef = firebase.database().ref();
+dbRef.child("vegan").get().then((snapshot) => {
+    if (snapshot.exists()) {
+      qwerty=snapshot.val()
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  $("#view").click(function(){
+    if(Number($("#inin").val()) in qwerty)  alert("현재 당신의 포인트는 "+qwerty[Number($("#inin").val())]['point']+"p입니다")
+  })
+
+  $('#submit').click(function(){
+    ref.child($('#hb1').val()+"_"+String(new Date().getTime())).put(fifi).then(function(snapshot) {
+      //console.log('Uploaded a blob or file!');
+      qwerty[Number($("#hb1").val())]['point']=qwerty[Number($("#hb1").val())]['point']+100
+      firebase.database().ref('vegan/'+$("#hb1").val()).set(qwerty[Number($("#hb1").val())]);
+    });
+  })
+</script>
+</body>
+</html>
